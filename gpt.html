@@ -1,0 +1,1171 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Pakistan Independence Day 🇵🇰</title>
+
+    <style>
+
+    /* =========================
+       RESET
+    ========================= */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #020b08;
+        color: white;
+    }
+
+    /* =========================
+       MAIN SCREEN
+    ========================= */
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Reel Frame */
+
+    .reel {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        max-width: 500px;
+        overflow: hidden;
+
+        background:
+            radial-gradient(
+                circle at 50% 40%,
+                rgba(0, 255, 128, 0.16),
+                transparent 35%
+            ),
+            linear-gradient(
+                160deg,
+                #020b08,
+                #001f16,
+                #020b08
+            );
+    }
+
+    /* =========================
+       CANVAS
+    ========================= */
+
+    #canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* =========================
+       TOP TEXT
+    ========================= */
+
+    .top {
+        position: absolute;
+        top: 5%;
+        width: 100%;
+        text-align: center;
+        z-index: 5;
+    }
+
+    .small-text {
+        color: #8dffc2;
+        letter-spacing: 5px;
+        font-size: 12px;
+        text-transform: uppercase;
+        opacity: 0.8;
+    }
+
+    .year {
+        margin-top: 8px;
+        font-size: 13px;
+        letter-spacing: 6px;
+        color: #ffffff;
+    }
+
+    /* =========================
+       FLAG AREA
+    ========================= */
+
+    .flag-container {
+        position: absolute;
+        top: 18%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 270px;
+        height: 170px;
+        z-index: 4;
+
+        filter:
+            drop-shadow(0 0 10px rgba(0,255,120,.35))
+            drop-shadow(0 0 30px rgba(0,255,120,.15));
+
+        animation: floatFlag 4s ease-in-out infinite;
+    }
+
+    @keyframes floatFlag {
+
+        0%,100% {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        50% {
+            transform: translateX(-50%) translateY(-10px);
+        }
+    }
+
+    /* Pakistan Flag */
+
+    .flag {
+        position: relative;
+        width: 250px;
+        height: 150px;
+        margin-left: 20px;
+
+        background:
+            linear-gradient(
+                to right,
+                #ffffff 0 20%,
+                #01411c 20% 100%
+            );
+
+        border-radius: 5px;
+
+        box-shadow:
+            0 0 20px rgba(0,255,100,.25),
+            inset 0 0 20px rgba(0,0,0,.25);
+
+        overflow: hidden;
+    }
+
+    /* Flag Shine */
+
+    .flag::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 40%;
+        height: 100%;
+
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,.2),
+                transparent
+            );
+
+        animation: shine 4s infinite;
+    }
+
+    @keyframes shine {
+
+        0% {
+            left: -100%;
+        }
+
+        50%,100% {
+            left: 140%;
+        }
+    }
+
+    /* Crescent */
+
+    .crescent {
+        position: absolute;
+        width: 75px;
+        height: 75px;
+
+        background: white;
+        border-radius: 50%;
+
+        left: 105px;
+        top: 35px;
+
+        box-shadow:
+            0 0 15px white,
+            0 0 30px rgba(255,255,255,.5);
+    }
+
+    .crescent::after {
+        content: "";
+        position: absolute;
+
+        width: 75px;
+        height: 75px;
+
+        background: #01411c;
+        border-radius: 50%;
+
+        left: 18px;
+        top: -10px;
+    }
+
+    /* Star */
+
+    .star {
+        position: absolute;
+        color: white;
+
+        left: 150px;
+        top: 38px;
+
+        font-size: 34px;
+
+        text-shadow:
+            0 0 10px white,
+            0 0 25px white;
+
+        animation:
+            starGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes starGlow {
+
+        0%,100% {
+            transform: rotate(-5deg) scale(1);
+        }
+
+        50% {
+            transform: rotate(8deg) scale(1.12);
+        }
+    }
+
+    /* Flag Pole */
+
+    .pole {
+        position: absolute;
+        left: 8px;
+        top: 0;
+
+        width: 5px;
+        height: 190px;
+
+        background:
+            linear-gradient(
+                to right,
+                #aaa,
+                white,
+                #777
+            );
+
+        border-radius: 5px;
+
+        box-shadow:
+            0 0 10px rgba(255,255,255,.5);
+    }
+
+    /* =========================
+       CENTER TEXT
+    ========================= */
+
+    .content {
+        position: absolute;
+        top: 53%;
+        width: 100%;
+
+        text-align: center;
+
+        z-index: 6;
+    }
+
+    .date {
+        font-size: clamp(32px, 9vw, 52px);
+        font-weight: 900;
+
+        letter-spacing: 4px;
+
+        color: white;
+
+        text-shadow:
+            0 0 5px #fff,
+            0 0 15px #00ff88,
+            0 0 30px #00ff88,
+            0 0 60px #00ff55;
+
+        animation:
+            dateGlow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes dateGlow {
+
+        from {
+            text-shadow:
+                0 0 5px white,
+                0 0 15px #00ff88;
+        }
+
+        to {
+            text-shadow:
+                0 0 10px white,
+                0 0 30px #00ff88,
+                0 0 70px #00ff55;
+        }
+    }
+
+    .subtitle {
+        margin-top: 10px;
+
+        font-size: 14px;
+        letter-spacing: 5px;
+
+        color: #9affc7;
+    }
+
+    /* =========================
+       TYPING TEXT
+    ========================= */
+
+    .typing-wrapper {
+
+        margin-top: 25px;
+
+        min-height: 55px;
+    }
+
+    .typing {
+
+        font-size: clamp(
+            25px,
+            7vw,
+            38px
+        );
+
+        font-weight: 900;
+
+        color: #ffffff;
+
+        text-shadow:
+            0 0 10px #00ff88,
+            0 0 30px #00ff88;
+
+    }
+
+    .cursor {
+
+        display: inline-block;
+
+        width: 3px;
+        height: 38px;
+
+        margin-left: 5px;
+
+        background: #00ff88;
+
+        vertical-align: middle;
+
+        animation:
+            blink .7s infinite;
+    }
+
+    @keyframes blink {
+
+        0%,50% {
+            opacity: 1;
+        }
+
+        51%,100% {
+            opacity: 0;
+        }
+    }
+
+    /* =========================
+       BOTTOM MESSAGE
+    ========================= */
+
+    .bottom {
+
+        position: absolute;
+
+        bottom: 7%;
+
+        width: 100%;
+
+        text-align: center;
+
+        z-index: 6;
+    }
+
+    .bottom-line {
+
+        width: 100px;
+        height: 2px;
+
+        margin: 0 auto 12px;
+
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                #00ff88,
+                transparent
+            );
+
+        box-shadow:
+            0 0 15px #00ff88;
+    }
+
+    .bottom p {
+
+        font-size: 12px;
+
+        letter-spacing: 3px;
+
+        color: #9affc7;
+
+        text-transform: uppercase;
+    }
+
+    /* =========================
+       BRAND SCREEN
+    ========================= */
+
+    .brand {
+
+        position: absolute;
+
+        inset: 0;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        flex-direction: column;
+
+        text-align: center;
+
+        background:
+            radial-gradient(
+                circle,
+                rgba(0,255,130,.2),
+                #00150e 65%
+            );
+
+        z-index: 20;
+
+        opacity: 0;
+
+        pointer-events: none;
+
+        transition:
+            opacity 1s ease;
+    }
+
+    .brand.show {
+
+        opacity: 1;
+    }
+
+    .brand h2 {
+
+        font-size: 25px;
+
+        letter-spacing: 3px;
+
+        color: white;
+
+        text-shadow:
+            0 0 15px #00ff88,
+            0 0 40px #00ff88;
+    }
+
+    .brand h3 {
+
+        margin-top: 12px;
+
+        font-size: 15px;
+
+        color: #00ff88;
+
+        letter-spacing: 4px;
+    }
+
+    .brand p {
+
+        margin-top: 20px;
+
+        color: #a8ffd0;
+
+        font-size: 11px;
+
+        letter-spacing: 2px;
+    }
+
+    /* =========================
+       SCREEN VIGNETTE
+    ========================= */
+
+    .vignette {
+
+        position: absolute;
+
+        inset: 0;
+
+        z-index: 10;
+
+        pointer-events: none;
+
+        background:
+            radial-gradient(
+                circle,
+                transparent 45%,
+                rgba(0,0,0,.5) 100%
+            );
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media(max-width:380px) {
+
+        .flag-container {
+            transform:
+                translateX(-50%)
+                scale(.85);
+        }
+
+        .content {
+            top: 55%;
+        }
+
+    }
+
+    </style>
+    </head>
+
+
+    <body>
+
+    <div class="reel">
+
+        <!-- PARTICLES -->
+        <canvas id="canvas"></canvas>
+
+
+        <!-- TOP -->
+        <div class="top">
+
+            <div class="small-text">
+                Independence Day
+            </div>
+
+            <div class="year">
+                1947 — 2026
+            </div>
+
+        </div>
+
+
+        <!-- FLAG -->
+        <div class="flag-container">
+
+            <div class="pole"></div>
+
+            <div class="flag">
+
+                <div class="crescent"></div>
+
+                <div class="star">
+                    ★
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MAIN CONTENT -->
+
+        <div class="content">
+
+            <div class="date">
+                14 AUGUST
+            </div>
+
+            <div class="subtitle">
+                79 YEARS OF FREEDOM
+            </div>
+
+
+            <div class="typing-wrapper">
+
+                <span
+                    class="typing"
+                    id="typing">
+                </span>
+
+                <span class="cursor"></span>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOTTOM -->
+
+        <div class="bottom">
+
+            <div class="bottom-line"></div>
+
+            <p>
+                One Nation • One Identity • Pakistan
+            </p>
+
+        </div>
+
+
+        <!-- FINAL BRAND SCREEN -->
+
+        <div
+            class="brand"
+            id="brand">
+
+            <h2>
+                ABBAS NEXGEN
+            </h2>
+
+            <h3>
+                LEARNING HUB
+            </h3>
+
+            <p>
+                NEXGEN LEARNING FOR NEXGEN LEADERS
+            </p>
+
+        </div>
+
+
+        <!-- VIGNETTE -->
+
+        <div class="vignette"></div>
+
+    </div>
+
+
+    <script>
+
+    /* =====================================
+       PARTICLE SYSTEM
+    ===================================== */
+
+    const canvas =
+        document.getElementById("canvas");
+
+    const ctx =
+        canvas.getContext("2d");
+
+    let particles = [];
+
+    function resizeCanvas() {
+
+        canvas.width =
+            canvas.clientWidth *
+            devicePixelRatio;
+
+        canvas.height =
+            canvas.clientHeight *
+            devicePixelRatio;
+
+        ctx.scale(
+            devicePixelRatio,
+            devicePixelRatio
+        );
+    }
+
+    resizeCanvas();
+
+    window.addEventListener(
+        "resize",
+        resizeCanvas
+    );
+
+
+    /* =====================================
+       CREATE PARTICLES
+    ===================================== */
+
+    class Particle {
+
+        constructor() {
+
+            this.x =
+                Math.random() *
+                canvas.clientWidth;
+
+            this.y =
+                Math.random() *
+                canvas.clientHeight;
+
+            this.size =
+                Math.random() * 2 + .3;
+
+            this.speed =
+                Math.random() * .4 + .1;
+
+            this.opacity =
+                Math.random();
+
+            this.color =
+                Math.random() > .35
+                ? "#ffffff"
+                : "#00ff88";
+        }
+
+
+        update() {
+
+            this.y -= this.speed;
+
+            if (this.y < -10) {
+
+                this.y =
+                    canvas.clientHeight + 10;
+
+                this.x =
+                    Math.random() *
+                    canvas.clientWidth;
+            }
+
+            this.opacity +=
+                (Math.random() - .5) * .04;
+
+            this.opacity =
+                Math.max(
+                    .1,
+                    Math.min(
+                        1,
+                        this.opacity
+                    )
+                );
+        }
+
+
+        draw() {
+
+            ctx.beginPath();
+
+            ctx.arc(
+                this.x,
+                this.y,
+                this.size,
+                0,
+                Math.PI * 2
+            );
+
+            ctx.fillStyle =
+                this.color;
+
+            ctx.globalAlpha =
+                this.opacity;
+
+            ctx.shadowBlur = 8;
+
+            ctx.shadowColor =
+                this.color;
+
+            ctx.fill();
+
+            ctx.globalAlpha = 1;
+        }
+
+    }
+
+
+    /* =====================================
+       PARTICLE COUNT
+    ===================================== */
+
+    for (
+        let i = 0;
+        i < 100;
+        i++
+    ) {
+
+        particles.push(
+            new Particle()
+        );
+    }
+
+
+    /* =====================================
+       FIREWORKS
+    ===================================== */
+
+    let fireworks = [];
+
+
+    class Firework {
+
+        constructor(x, y) {
+
+            this.x = x;
+            this.y = y;
+
+            this.particles = [];
+
+            const colors = [
+                "#00ff88",
+                "#ffffff",
+                "#00cc66",
+                "#8affc1"
+            ];
+
+            for (
+                let i = 0;
+                i < 35;
+                i++
+            ) {
+
+                const angle =
+                    Math.random() *
+                    Math.PI *
+                    2;
+
+                const speed =
+                    Math.random() *
+                    3 + 1;
+
+                this.particles.push({
+
+                    x: x,
+                    y: y,
+
+                    vx:
+                        Math.cos(angle) *
+                        speed,
+
+                    vy:
+                        Math.sin(angle) *
+                        speed,
+
+                    life: 1,
+
+                    color:
+                        colors[
+                            Math.floor(
+                                Math.random() *
+                                colors.length
+                            )
+                        ]
+
+                });
+
+            }
+
+        }
+
+
+        update() {
+
+            this.particles.forEach(p => {
+
+                p.x += p.vx;
+
+                p.y += p.vy;
+
+                p.vy += .035;
+
+                p.life -= .018;
+
+            });
+
+        }
+
+
+        draw() {
+
+            this.particles.forEach(p => {
+
+                if (p.life <= 0)
+                    return;
+
+                ctx.beginPath();
+
+                ctx.arc(
+                    p.x,
+                    p.y,
+                    1.5,
+                    0,
+                    Math.PI * 2
+                );
+
+                ctx.fillStyle =
+                    p.color;
+
+                ctx.globalAlpha =
+                    p.life;
+
+                ctx.shadowBlur = 10;
+
+                ctx.shadowColor =
+                    p.color;
+
+                ctx.fill();
+
+                ctx.globalAlpha = 1;
+
+            });
+
+        }
+
+    }
+
+
+    /* =====================================
+       RANDOM FIREWORK
+    ===================================== */
+
+    function createFirework() {
+
+        const x =
+            Math.random() *
+            canvas.clientWidth;
+
+        const y =
+            Math.random() *
+            canvas.clientHeight *
+            .55;
+
+        fireworks.push(
+            new Firework(x, y)
+        );
+
+    }
+
+
+    /* =====================================
+       ANIMATION LOOP
+    ===================================== */
+
+    function animate() {
+
+        ctx.clearRect(
+            0,
+            0,
+            canvas.clientWidth,
+            canvas.clientHeight
+        );
+
+
+        particles.forEach(p => {
+
+            p.update();
+
+            p.draw();
+
+        });
+
+
+        fireworks.forEach(
+            (firework, index) => {
+
+                firework.update();
+
+                firework.draw();
+
+                if (
+                    firework.particles.every(
+                        p => p.life <= 0
+                    )
+                ) {
+
+                    fireworks.splice(
+                        index,
+                        1
+                    );
+
+                }
+
+            }
+        );
+
+
+        requestAnimationFrame(
+            animate
+        );
+
+    }
+
+    animate();
+
+
+    /* =====================================
+       FIREWORK TIMING
+    ===================================== */
+
+    setInterval(() => {
+
+        createFirework();
+
+    }, 1700);
+
+
+    /* =====================================
+       TYPING EFFECT
+    ===================================== */
+
+    const typingElement =
+        document.getElementById(
+            "typing"
+        );
+
+    const messages = [
+
+        "PAKISTAN ZINDABAD 🇵🇰",
+
+        "LONG LIVE PAKISTAN ❤️",
+
+        "AZADI MUBARAK ✨",
+
+        "PROUD TO BE PAKISTANI 🇵🇰"
+
+    ];
+
+    let messageIndex = 0;
+
+    let charIndex = 0;
+
+    let deleting = false;
+
+
+    function typeEffect() {
+
+        const current =
+            messages[messageIndex];
+
+
+        if (!deleting) {
+
+            typingElement.textContent =
+                current.substring(
+                    0,
+                    charIndex + 1
+                );
+
+            charIndex++;
+
+            if (
+                charIndex ===
+                current.length
+            ) {
+
+                deleting = true;
+
+                setTimeout(
+                    typeEffect,
+                    1800
+                );
+
+                return;
+            }
+
+        }
+
+        else {
+
+            typingElement.textContent =
+                current.substring(
+                    0,
+                    charIndex - 1
+                );
+
+            charIndex--;
+
+            if (charIndex === 0) {
+
+                deleting = false;
+
+                messageIndex =
+                    (messageIndex + 1)
+                    % messages.length;
+
+            }
+
+        }
+
+
+        setTimeout(
+            typeEffect,
+            deleting
+                ? 45
+                : 85
+        );
+
+    }
+
+    typeEffect();
+
+
+    /* =====================================
+       INTERACTION
+    ===================================== */
+
+    document
+        .querySelector(".reel")
+        .addEventListener(
+            "click",
+            function(e) {
+
+                const rect =
+                    canvas.getBoundingClientRect();
+
+                fireworks.push(
+                    new Firework(
+                        e.clientX -
+                        rect.left,
+
+                        e.clientY -
+                        rect.top
+                    )
+                );
+
+            }
+        );
+
+
+    /* =====================================
+       FINAL BRANDING
+    ===================================== */
+
+    setTimeout(() => {
+
+        document
+            .getElementById("brand")
+            .classList.add("show");
+
+    }, 12500);
+
+
+    setTimeout(() => {
+
+        document
+            .getElementById("brand")
+            .classList.remove("show");
+
+    }, 17000);
+
+
+    </script>
+
+    </body>
+    </html>
